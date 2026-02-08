@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cad-orange: #FF6B00;
+  --color-cad-purple: #B844D8;
+  --color-cad-pink: #FF3D8F;
+  --color-cad-dark: #0a0a0a;
+  --color-cad-darker: #000000;
+  --color-cad-gray: #1a1a1a;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --background-image-gradient-cad: linear-gradient(135deg, #B844D8 0%, #FF3D8F 100%);
+
+  --shadow-glow-orange: 0 0 20px rgba(255, 107, 0, 0.3);
+  --shadow-glow-gradient: 0 0 30px rgba(184, 68, 216, 0.4);
+
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.8s ease-in-out;
+  --animate-fade-in-up: fadeInUp 0.8s ease-in-out;
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(184, 68, 216, 0.4);
+    }
+
+    50% {
+      box-shadow: 0 0 30px rgba(184, 68, 216, 0.6);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Custom Utilities */
+@utility text-gradient-cad {
+  @apply bg-gradient-cad bg-clip-text text-transparent;
+}
+
+@utility animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+@utility animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+@layer base {
+  body {
+    @apply text-white antialiased;
+    background-color: #000000;
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(circle at center, transparent 0%, #000000 100%),
+      linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-position: center, center top, center top;
+    background-attachment: fixed;
+  }
+}
